@@ -1,6 +1,6 @@
 $(function() {
     // 定义访问后台获取头条列表以及一级商铺类别列表的URL
-    var url = '/myo2o/frontend/listmainpageinfo';
+    var url = '/o2o/frontend/listmainpageinfo';
 
     // 访问后台获取头条列表以及一级商铺类别
     $.getJSON(url, function (data) {
@@ -51,7 +51,7 @@ $(function() {
     // 点击特定的分类
     $('.row').on('click', '.shop-classify', function (e) {
         var shopCategoryId = e.currentTarget.dataset.category;
-        var newUrl = '/myo2o/frontend/shoplist?parentId=' + shopCategoryId;
+        var newUrl = '/o2o/frontend/shoplist?parentId=' + shopCategoryId;
         window.location.href = newUrl;
     });
 

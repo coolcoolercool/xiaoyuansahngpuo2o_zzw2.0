@@ -8,17 +8,18 @@
 
     <!--配置整合mybatis过程-->
     <!--1.配置数据库相关参数properties的属性-->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
 
-    <!--   <bean class="com.zzw.o2otil.EncryptPropertyPlaceholderConfigurer">
-           <property name="localtions">
-               <list>
-                   <value>classpath:jdbc.properties</value>
-                   <value>classpath:jdbc.properties</value>
-               </list>
-           </property>
-           <property name="fileEncoding" value="UTF-8"/>
-       </bean>-->
+
+   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+       <property name="locations">
+           <list>
+               <value>classpath:jdbc.properties</value>
+               <value>classpath:redis.properties</value>
+           </list>
+       </property>
+       <property name="fileEncoding" value="UTF-8"/>
+   </bean>
 
     <!--2.数据库连接池(使用阿里巴巴的那个连接池会不会好一点？)-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">

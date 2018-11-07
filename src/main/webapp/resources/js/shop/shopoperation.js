@@ -8,13 +8,13 @@ $(function(){
     var isEdit = shopId ? true : false;
 
     // 获取基本信息的URL
-    var initUrl = '/myo2o/shopadmin/getshopmanagementinfo';
+    var initUrl = '/o2o/shopadmin/getshopmanagementinfo';
     // 注册店铺的URL
-    var registerShopUrl = '/myo2o/shopadmin/registshop';
+    var registerShopUrl = '/o2o/shopadmin/registshop';
     // 通过shopId获取商铺信息的URL
-    var getShopInfoByShopId = '/myo2o/shopadmin/getshopinfobyid?shopId=' + shopId;
+    var getShopInfoByShopId = '/o2o/shopadmin/getshopinfobyid?shopId=' + shopId;
     // 修改商铺的URL
-    var modifyShopUrl = '/myo2o/shopadmin/modifyshop';
+    var modifyShopUrl = '/o2o/shopadmin/modifyshop';
 
 
     //根据isEdit 来判断 是注册商品还是修改商铺

@@ -8,13 +8,13 @@ $(function(){
     var isEdit = productId ? true : false ;
 
     // 商品添加URL 用于提交
-    var addProductURL = '/myo2o/shopadmin/addproduct';
+    var addProductURL = '/o2o/shopadmin/addproduct';
     // 商品编辑URL 用于提交
-    var editProductURL = '/myo2o/shopadmin/modifyproduct?productId=' + productId;
+    var editProductURL = '/o2o/shopadmin/modifyproduct?productId=' + productId;
     // 获取商品初始化信息的URL  根据页面原型只需要获取productCategory即可，后台调用之前写好的路由方法即可
-    var categoryInfoURL = '/myo2o/shopadmin/getproductcategorylist';
+    var categoryInfoURL = '/o2o/shopadmin/getproductcategorylist';
     // 商品编辑URL 用于从后台加载该product的基本信息，页面展示用
-    var productInitURL = '/myo2o/shopadmin/getproductbyid?productId=' + productId;
+    var productInitURL = '/o2o/shopadmin/getproductbyid?productId=' + productId;
 
 
 

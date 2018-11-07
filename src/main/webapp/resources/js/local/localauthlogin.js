@@ -1,5 +1,5 @@
 $(function() {
-	var loginUrl = '/o2o/shop/localauthlogincheck';
+	var loginUrl = '/o2o/shop/logincheck';
 	var loginCount = 0;
 
 	$('#submit').click(function() {

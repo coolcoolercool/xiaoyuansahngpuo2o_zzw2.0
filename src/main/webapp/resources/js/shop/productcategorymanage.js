@@ -1,11 +1,11 @@
 $(function () {
     // 后台从session中获取shop的信息，这里就不传shopId了
     var shopId = getQueryString("shopId");
-    var productCategoryURL = '/myo2o/shopadmin/getproductcategorylist?shopId=' + shopId;
+    var productCategoryURL = '/o2o/shopadmin/getproductcategorylist?shopId=' + shopId;
 
-    var getProductCategoryURL = '/myo2o/shopadmin/getproductcategorylist';
-    var addProductCategoryURL = '/myo2o/shopadmin/addproductcategory';
-    var deleteProductCategoryUrl = '/myo2o/shopadmin/removeproductcategory';
+    var getProductCategoryURL = '/o2o/shopadmin/getproductcategorylist';
+    var addProductCategoryURL = '/o2o/shopadmin/addproductcategory';
+    var deleteProductCategoryUrl = '/o2o/shopadmin/removeproductcategory';
     // 调用getProductCategoryList，加载数据
     getProductCategoryList();
 

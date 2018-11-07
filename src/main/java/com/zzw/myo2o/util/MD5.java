@@ -3,21 +3,15 @@ package com.zzw.myo2o.util;
 import java.security.MessageDigest;
 
 /**
- * 
- * @author     : bless<505629625@qq.com>
- * Create Time : 2011-2-21����09:36:48
- * Description : 
- *             MD5�����㷨
+
  */
 public class MD5 {
 
-   /**
-    * 
-    * Function  : ����ָ���ַ���
-    * @author   : bless<505629625@qq.com>
-    * @param s  : �����ܲ���
-    * @return   : ���ܺ�Ľ��
-    */
+    /**
+     * 对传入的字符串进行加密
+     * @param s
+     * @return
+     */
     public static final String getMd5(String s)
     {
         char hexDigits[] = {

@@ -10,6 +10,7 @@
 		<result column="password" property="password" />
 		<result column="create_time" property="createTime" />
 		<result column="last_edit_time" property="lastEditTime" />
+
 		<association property="personInfo" column="user_id"
 			javaType="com.zzw.myo2o.entity.PersonInfo">
 			<id column="user_id" property="userId" />
@@ -27,8 +28,7 @@
 			<result column="enable_status" property="enableStatus" />
 		</association>
 	</resultMap>
-	<select id="queryLocalByUserNameAndPwd" resultMap="localAuthResultMap"
-		parameterType="String">
+	<select id="queryLocalByUserNameAndPwd" resultMap="localAuthResultMap" parameterType="String">
 		SELECT
 		l.local_auth_id,
 		l.user_id,
@@ -54,11 +54,9 @@
 		LEFT
 		JOIN
 		tb_person_info
-		p ON l.user_id =
-		p.user_id
+		p ON l.user_id = p.user_id
 		WHERE
-		l.user_name =
-		#{userName}
+		l.user_name = #{userName}
 		AND
 		l.password = #{password}
 	</select>
@@ -89,28 +87,32 @@
 		LEFT
 		JOIN
 		tb_person_info
-		p ON l.user_id =
-		p.user_id
+		p ON l.user_id = p.user_id
 		WHERE
-		l.user_id =
-		#{userId}
+		l.user_id = #{userId}
 	</select>
+
 	<insert id="insertLocalAuth" parameterType="com.zzw.myo2o.entity.LocalAuth"
 		useGeneratedKeys="true" keyProperty="localAuthId" keyColumn="local_auth_id">
 		INSERT
 		INTO
-		tb_local_auth(user_name,password,user_id,create_time,last_edit_time)
+		tb_local_auth(
+		user_name,
+		password,
+		user_id,
+		create_time,
+		last_edit_time)
 		VALUES
-		(#{userName},#{password},#{userId},#{createTime},#{lastEditTime})
+		(#{userName},#{password},#{personInfo.userId},#{createTime},#{lastEditTime})
 	</insert>
+
 	<update id="updateLocalAuth">
 		update tb_local_auth
 		<set>
 			<if test="newPassword != null">password=#{newPassword},</if>
 			<if test="lastEditTime != null">last_edit_time=#{lastEditTime}</if>
 		</set>
-		where user_id=#{userId}
-		AND user_name=#{userName}
+		where user_name=#{userName}
 		AND
 		password=#{password}
 	</update>

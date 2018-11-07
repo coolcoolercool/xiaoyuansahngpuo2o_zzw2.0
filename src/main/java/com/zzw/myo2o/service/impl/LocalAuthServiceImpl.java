@@ -30,7 +30,8 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 	@Override
 	public LocalAuth getLocalAuthByUserNameAndPwd(String userName,
 			String password) {
-		return localAuthDao.queryLocalByUserNameAndPwd(userName, password);
+		//这里并没有对password进行MD5加密,估计是在controller层继续密码加密 todo
+		return localAuthDao.queryLocalByUserNameAndPwd(userName, MD5.getMd5(password));
 	}
 
 	@Override
@@ -38,6 +39,13 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 		return localAuthDao.queryLocalByUserId(userId);
 	}
 
+    /**
+     * 注册平台账号
+     * @param localAuth
+     * @param profileImg
+     * @return
+     * @throws RuntimeException
+     */
 	@Override
 	@Transactional
 	public LocalAuthExecution register(LocalAuth localAuth,
@@ -89,6 +97,12 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 		}
 	}
 
+    /**
+     * 将微信账号与localAuth绑定,生成平台专属账号
+     * @param localAuth
+     * @return
+     * @throws RuntimeException
+     */
 	@Override
 	@Transactional
 	public LocalAuthExecution bindLocalAuth(LocalAuth localAuth)
@@ -120,16 +134,24 @@ public class LocalAuthServiceImpl implements LocalAuthService {
 		}
 	}
 
+    /**
+     * 修改平台账号的登陆密码
+     * @param userId
+     * @param userName
+     * @param password
+     * @param newPassword
+     * @return
+     */
 	@Override
 	@Transactional
 	public LocalAuthExecution modifyLocalAuth(Long userId, String userName,
 			String password, String newPassword) {
+	    //非空判断,判断传入的用户id,账号,新旧密码是否为空,新旧密码是否相同,若不满足条件则返回错误信息
 		if (userId != null && userName != null && password != null
 				&& newPassword != null && !password.equals(newPassword)) {
 			try {
-				int effectedNum = localAuthDao.updateLocalAuth(userId,
-						userName, MD5.getMd5(password),
-						MD5.getMd5(newPassword), new Date());
+				int effectedNum = localAuthDao.updateLocalAuth(userId,userName, MD5.getMd5(password),
+						MD5.getMd5(newPassword), new Date()); //注意这里需要对新旧密码都要进行MD5加密
 				if (effectedNum <= 0) {
 					throw new RuntimeException("更新密码失败");
 				}

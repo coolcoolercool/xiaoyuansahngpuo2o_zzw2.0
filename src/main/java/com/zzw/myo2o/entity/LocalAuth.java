@@ -3,12 +3,19 @@ package com.zzw.myo2o.entity;
 import java.util.Date;
 
 public class LocalAuth {
+	//主键ID
 	private Long localAuthId;
+	//账号
 	private String userName;
+	//密码
 	private String password;
+
 	private Long userId;
+
 	private Date createTime;
+
 	private Date lastEditTime;
+	//个人信息,关系为一一对应
 	private PersonInfo personInfo;
 
 	public Long getLocalAuthId() {

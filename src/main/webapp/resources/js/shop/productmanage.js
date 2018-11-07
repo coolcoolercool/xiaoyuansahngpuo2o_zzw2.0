@@ -3,8 +3,8 @@
 * */
 
 $(function() {
-    var listUrl = '/myo2o/shopadmin/getproductlist?pageIndex=1&pageSize=9999';
-    var changeStuatusURL = '/myo2o/shopadmin/changestatus';
+    var listUrl = '/o2o/shopadmin/getproductlist?pageIndex=1&pageSize=9999';
+    var changeStuatusURL = '/o2o/shopadmin/changestatus';
 
     getList();
 
@@ -90,19 +90,19 @@ $(function() {
         function(e) {
             var target = $(e.currentTarget);
             if (target.hasClass('edit')) {
-                window.location.href = '/myo2o/shopadmin/productoperation?productId='
+                window.location.href = '/o2o/shopadmin/productoperation?productId='
                     + e.currentTarget.dataset.id;
             } else if (target.hasClass('status')) {
                 changeStatus(e.currentTarget.dataset.id,
                     e.currentTarget.dataset.status);
             } else if (target.hasClass('preview')) {
                 // TODO
-                window.location.href = '/myo2o/frontend/productdetail?productId='
+                window.location.href = '/o2o/frontend/productdetail?productId='
                     + e.currentTarget.dataset.id;
             }
         });
 
     $('#new').click(function() {
-        window.location.href = '/myo2o/shopadmin/productoperation';
+        window.location.href = '/o2o/shopadmin/productoperation';
     });
 });

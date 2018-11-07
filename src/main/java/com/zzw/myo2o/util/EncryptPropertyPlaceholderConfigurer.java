@@ -8,7 +8,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
  */
 
 /*
-* 注意这里加密解密的原明文,需要长度为8或者16的倍数,否则可能会报错
+*
 * */
 public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
     //需要加密的字段数组,遇到这两个字段就进行解密
@@ -23,7 +23,7 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
     protected String convertProperty(String propertyName, String propertyValue){
         if(isEncryptProp(propertyName)){
             //对已经加密的字段进行解密工作
-            String decryptValue = DESUtils.getDecryptString(propertyName);
+            String decryptValue = DESUtils.getDecryptString(propertyValue);
             return decryptValue;
         }else{
             return propertyValue;

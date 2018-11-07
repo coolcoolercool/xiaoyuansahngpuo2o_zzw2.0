@@ -12,6 +12,8 @@ import java.util.List;
 
 
 public interface HeadLineService {
+    public static final String  HEADLINEKEY = "arealist";
+
     /**
      * 根据传入的田间返回指定的头条列表
      * @param headLineCondition

@@ -56,9 +56,15 @@ public class ShopAdminController {
     }
 
     @RequestMapping(value="/productmanagement", method=RequestMethod.GET)
-    //
+    //转发到商品管理页面
     public String productManagement(){
         return "shop/productmanagement";
+    }
+
+    @RequestMapping(value="/localauthlogin", method= RequestMethod.GET)
+    //转发到用户登陆页面
+    public String localAuthLogin(){
+        return "shop/localauthlogin";
     }
 
 }

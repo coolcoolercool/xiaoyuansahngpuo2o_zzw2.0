@@ -19,9 +19,35 @@ public class AreaServiceTest extends BaseTest {
     @Autowired //通过@service标签，和@Autowried标签，可以自动将service的实现类自动注入
     private AreaService areaService;
 
+    @Autowired
+    private CacheService cacheService;
+
     @Test
     public void getAreaList() {
+        // 首次从db中加载
         List<Area> areaList = areaService.getAreaList();
-        assertEquals("西苑",areaList.get(2).getAreaName());
+        for (Area area : areaList) {
+            System.out.println("||---->" + area.toString());
+        }
+
+        // 再次查询从redis中获取
+        areaList = areaService.getAreaList();
+        for (Area area : areaList) {
+            System.out.println("**---->" + area.toString());
+        }
+        // 清除缓存
+        cacheService.removeFromCache(AreaService.AREALISTKEY);
+
+        // 再次查询 从db中获取
+        areaList = areaService.getAreaList();
+        for (Area area : areaList) {
+            System.out.println("**---->" + area.toString());
+        }
+
+        // 再次查询从redis中获取
+        areaList = areaService.getAreaList();
+        for (Area area : areaList) {
+            System.out.println("||---->" + area.toString());
+        }
     }
 }

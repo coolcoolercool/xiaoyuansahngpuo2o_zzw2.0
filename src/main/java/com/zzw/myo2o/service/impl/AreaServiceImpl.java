@@ -42,11 +42,12 @@ public class AreaServiceImpl implements AreaService {
     @Override
     @Transactional
     public List<Area> getAreaList()  {
+        //定义redis中的key
         String key = AREALISTKEY;
+        //定义接收对象
         List<Area> areaList = null;
-        //mapper对象
+        //定义jackson数据转换操作类
         ObjectMapper mapper = new ObjectMapper();
-
             //如果reids中不存在key的信息,就从数据库中查询,如果redis中存在,则从redis中取出key的信息
             if (!jedisKeys.exists(key)) {
                 try {

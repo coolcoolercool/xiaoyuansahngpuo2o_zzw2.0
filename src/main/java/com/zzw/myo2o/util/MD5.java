@@ -47,7 +47,8 @@ public class MD5 {
     }
     
     public static void main(String[] args) {
-		System.out.println(MD5.getMd5("admin"));
+		System.out.println(MD5.getMd5("zzw"));
+		System.out.println("zzw的MD5的对应的密码: " + MD5.getMd5("12345"));
 	}
 }
 

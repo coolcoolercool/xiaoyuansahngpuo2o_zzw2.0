@@ -10,8 +10,13 @@ public class JedisPoolWriper {
 	//redis连接池对象
 	private JedisPool jedisPool;
 
-	public JedisPoolWriper(final JedisPoolConfig poolConfig, final String host,
-			final int port) {
+	/**
+	 * 构造函数
+	 * @param poolConfig
+	 * @param host
+	 * @param port
+	 */
+	public JedisPoolWriper(final JedisPoolConfig poolConfig, final String host, final int port) {
 		try {
 			jedisPool = new JedisPool(poolConfig, host, port);
 		} catch (Exception e) {

@@ -528,7 +528,6 @@ public class JedisUtil {
 
 		/**
 		 * 以Map的形式返回hash中的存储和值
-		 *
 		 * @param key
 		 * @return Map<Strinig,String>
 		 * */
@@ -542,7 +541,6 @@ public class JedisUtil {
 
 		/**
 		 * 添加一个对应关系
-		 *
 		 * @param key
 		 * @param fieid
 		 * @param value
@@ -564,7 +562,6 @@ public class JedisUtil {
 
 		/**
 		 * 添加对应关系，只有在fieid不存在时才执行
-		 *
 		 * @param key
 		 * @param fieid
 		 * @param value
@@ -579,7 +576,6 @@ public class JedisUtil {
 
 		/**
 		 * 获取hash中value的集合
-		 *
 		 * @param key
 		 * @return List<String>
 		 * */
@@ -750,10 +746,8 @@ public class JedisUtil {
 		/**
 		 * 添加一条记录，仅当给定的key不存在时才插入
 		 *
-		 * @param String
-		 *            key
-		 * @param String
-		 *            value
+		 * @param key
+		 * @param value
 		 * @return long 状态码，1插入成功且key不存在，0未插入，key存在
 		 * */
 		public long setnx(String key, String value) {
@@ -766,10 +760,8 @@ public class JedisUtil {
 		/**
 		 * 添加记录,如果记录已存在将覆盖原有的value
 		 *
-		 * @param String
-		 *            key
-		 * @param String
-		 *            value
+		 * @param  key
+		 * @param value
 		 * @return 状态码
 		 * */
 		public String set(String key, String value) {
@@ -779,10 +771,8 @@ public class JedisUtil {
 		/**
 		 * 添加记录,如果记录已存在将覆盖原有的value
 		 *
-		 * @param String
-		 *            key
-		 * @param String
-		 *            value
+		 * @param key
+		 * @param value
 		 * @return 状态码
 		 * */
 		public String set(String key, byte[] value) {
@@ -792,8 +782,8 @@ public class JedisUtil {
 		/**
 		 * 添加记录,如果记录已存在将覆盖原有的value
 		 *
-		 * @param byte[] key
-		 * @param byte[] value
+		 * @param key
+		 * @param value
 		 * @return 状态码
 		 * */
 		public String set(byte[] key, byte[] value) {
@@ -808,11 +798,9 @@ public class JedisUtil {
 		 * 例:String str1="123456789";<br/>
 		 * 对str1操作后setRange(key,4,0000)，str1="123400009";
 		 *
-		 * @param String
-		 *            key
-		 * @param long offset
-		 * @param String
-		 *            value
+		 * @param key
+		 * @param  offset
+		 * @param  value
 		 * @return long value的长度
 		 * */
 		public long setRange(String key, long offset, String value) {
@@ -825,10 +813,8 @@ public class JedisUtil {
 		/**
 		 * 在指定的key中追加value
 		 *
-		 * @param String
-		 *            key
-		 * @param String
-		 *            value
+		 * @param key
+		 * @param value
 		 * @return long 追加后value的长度
 		 * **/
 		public long append(String key, String value) {
@@ -841,9 +827,8 @@ public class JedisUtil {
 		/**
 		 * 将key对应的value减去指定的值，只有value可以转为数字时该方法才可用
 		 *
-		 * @param String
-		 *            key
-		 * @param long number 要减去的值
+		 * @param key
+		 * @param number 要减去的值
 		 * @return long 减指定值后的值
 		 * */
 		public long decrBy(String key, long number) {
@@ -857,9 +842,8 @@ public class JedisUtil {
 		 * <b>可以作为获取唯一id的方法</b><br/>
 		 * 将key对应的value加上指定的值，只有value可以转为数字时该方法才可用
 		 *
-		 * @param String
-		 *            key
-		 * @param long number 要减去的值
+		 * @param key
+		 * @param number 要减去的值
 		 * @return long 相加后的值
 		 * */
 		public long incrBy(String key, long number) {
@@ -872,10 +856,9 @@ public class JedisUtil {
 		/**
 		 * 对指定key对应的value进行截取
 		 *
-		 * @param String
-		 *            key
-		 * @param long startOffset 开始位置(包含)
-		 * @param long endOffset 结束位置(包含)
+		 * @param key
+		 * @param startOffset 开始位置(包含)
+		 * @param endOffset 结束位置(包含)
 		 * @return String 截取的值
 		 * */
 		public String getrange(String key, long startOffset, long endOffset) {

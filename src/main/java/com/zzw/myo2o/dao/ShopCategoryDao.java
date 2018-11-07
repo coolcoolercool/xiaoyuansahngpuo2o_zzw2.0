@@ -23,6 +23,5 @@ public interface ShopCategoryDao {
      * @param shopCategory
      * @return
      */
-    List<ShopCategory> queryShopCategory(@Param("shopCategoryCondition")
-                                         ShopCategory shopCategory);
+    List<ShopCategory> queryShopCategory(@Param("shopCategoryCondition") ShopCategory shopCategory);
 }

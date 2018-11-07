@@ -24,21 +24,38 @@ public class HeadLineServiceTest extends BaseTest {
     public void queryHeadLineList() throws IOException {
 
         HeadLine headLineCondition = new HeadLine();
+
         // 状态 0 不可用 1 可用
         headLineCondition.setEnableStatus(0);
-
         // 查询不可用的头条信息
         List<HeadLine> headLineList = headLineService.queryHeadLineList(headLineCondition);
         Assert.assertEquals(1, headLineList.size());
         for (HeadLine headLine : headLineList) {
-            System.out.println(headLine);
+            System.out.println("0 -> "  + headLine);
         }
         // 查询可用的头条信息
         headLineCondition.setEnableStatus(1);
         headLineList = headLineService.queryHeadLineList(headLineCondition);
         Assert.assertEquals(4, headLineList.size());
         for (HeadLine headLine : headLineList) {
-            System.out.println(headLine);
+            System.out.println("1 -> " + headLine);
+        }
+
+        //再次查询 不同状态的头条信息
+        // 状态 0 不可用 1 可用
+        headLineCondition.setEnableStatus(0);
+        // 查询不可用的头条信息
+        headLineList = headLineService.queryHeadLineList(headLineCondition);
+        Assert.assertEquals(1, headLineList.size());
+        for (HeadLine headLine : headLineList) {
+            System.out.println("0 -> "  + headLine);
+        }
+        // 查询可用的头条信息
+        headLineCondition.setEnableStatus(1);
+        headLineList = headLineService.queryHeadLineList(headLineCondition);
+        Assert.assertEquals(4, headLineList.size());
+        for (HeadLine headLine : headLineList) {
+            System.out.println("1 -> " + headLine);
         }
     }
 }

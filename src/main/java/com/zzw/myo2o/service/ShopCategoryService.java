@@ -11,6 +11,9 @@ import java.util.List;
 
 
 public interface ShopCategoryService {
+    // redis key的前缀，抽取到接口层，方便使用
+    public static final String SCLISTKEY = "shopcategory";
+
     /**
      * 根据查询条件获取ShopCategory列表
      * @param shopCategoryCondition

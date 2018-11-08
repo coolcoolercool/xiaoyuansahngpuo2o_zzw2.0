@@ -52,17 +52,48 @@
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.zzw.myo2o.web" />
 
-   <!--
-    &lt;!&ndash; 5.权限拦截器 &ndash;&gt;
+    <!-- 5.权限拦截器 -->
     <mvc:interceptors>
+        <!--校验是否已经登陆了店家管理系统的拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/shopadmin/**" />
+            <bean id="ShopInterceptor" class="com.zzw.myo2o.interceptor.shop.ShopLoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+<!--
+    <mvc:interceptors>
+        &lt;!&ndash;校验是否对该店铺有操作权限的拦截器&ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/shopadmin/**" />
+            &lt;!&ndash;以下的方法不会被拦截,被排除在拦截范围以外&ndash;&gt;
+            &lt;!&ndash;shoplist page&ndash;&gt;
+            <mvc:exclude-mapping path="/shopadmin/shoplist" />
+            <mvc:exclude-mapping path="/shopadmin/getshoplist"/>
+            &lt;!&ndash;shopregister page&ndash;&gt;
+            <mvc:exclude-mapping path="/shopadmin/getshopinitinfo"/>
+            <mvc:exclude-mapping path="/shopadmin/registershop"/>
+            <mvc:exclude-mapping path="/shopadmin/shopoperation"/>
+            &lt;!&ndash;shopmanage page&ndash;&gt;
+            <mvc:exclude-mapping path="/shopadmin/shopmanagement"/>
+            <mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo"/>
+            <bean id="ShopPermissionInterceptor"
+                  class="com.zzw.myo2o.interceptor.shop.ShopPermissionInterceptor" />
+
+        </mvc:interceptor>-->
+
+
+    <!--<mvc:interceptors>
+
         <mvc:interceptor>
             <mvc:mapping path="/shop/**" />
             <mvc:exclude-mapping path="/shop/ownerlogin" />
             <mvc:exclude-mapping path="/shop/ownerlogincheck" />
             <mvc:exclude-mapping path="/shop/logout" />
             <mvc:exclude-mapping path="/shop/register" />
-            <bean id="ShopInterceptor" class="com.zzw.o2onterceptor.shop.ShopLoginInterceptor" />
+            <bean id="ShopInterceptor" class="com.zzw.myo2o.interceptor.shop.ShopLoginInterceptor" />
         </mvc:interceptor>
+        &lt;!&ndash;校验是否对该店铺有操作权限的拦截器&ndash;&gt;
         <mvc:interceptor>
             <mvc:mapping path="/shop/**" />
             <mvc:exclude-mapping path="/shop/ownerlogin" />
@@ -86,8 +117,9 @@
             <mvc:exclude-mapping path="/shop/getshopinitinfo" />
             <mvc:exclude-mapping path="/shop/registershop" />
             <bean id="ShopPermissionInterceptor"
-                  class="com.zzw.o2onterceptor.shop.ShopPermissionInterceptor" />
-        </mvc:interceptor>
+                  class="com.zzw.myo2o.interceptor.shop.ShopPermissionInterceptor" />
+        </mvc:interceptor>-->
+<!--
         <mvc:interceptor>
             <mvc:mapping path="/superadmin/**" />
             <mvc:exclude-mapping path="/superadmin/login" />
@@ -95,8 +127,8 @@
             <mvc:exclude-mapping path="/superadmin/main" />
             <mvc:exclude-mapping path="/superadmin/top" />
             <bean id="SuperAdminInterceptor"
-                  class="com.zzw.o2onterceptor.superadmin.SuperAdminLoginInterceptor" />
+                  class="com.zzw.myo2o.interceptor.superadmin.SuperAdminLoginInterceptor" />
         </mvc:interceptor>
+-->
 
-    </mvc:interceptors>-->
 </beans>

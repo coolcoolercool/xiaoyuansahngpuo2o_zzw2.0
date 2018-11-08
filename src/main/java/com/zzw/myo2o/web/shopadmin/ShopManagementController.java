@@ -106,6 +106,10 @@ public class ShopManagementController {
             shopCondition.setOwner(user);
             ShopExecution se = shopService.getShopList(shopCondition, 0, 100);
             modelMap.put("shopList", se.getShopList());
+
+            //拦截器添加语句,列出店铺成功以后,将店铺放入session中作为权限验证依据,即该账号只能操作它自己的店铺
+            request.getSession().setAttribute("shoplist", se.getShopList());
+
             modelMap.put("user", user);
             modelMap.put("success", true);
         } catch (Exception e) {
@@ -160,7 +164,6 @@ public class ShopManagementController {
             return modelMap;
         }
         // 1. 接收并转换相应的参数，包括shop信息和图片信息
-
         // 1.1 shop信息
 
         // shopStr 是和前端约定好的参数值，后端从request中获取request这个值来获取shop的信息

@@ -1,7 +1,9 @@
 package com.zzw.myo2o.entity;
 
 import java.util.Date;
-
+/*
+* 顾客已领取的奖品映射
+* */
 public class UserAwardMap {
 
 	private Long userAwardId;
@@ -12,10 +14,14 @@ public class UserAwardMap {
 	private String awardName;
 	private Date expireTime;
 	private Date createTime;
+	//使用状态 0未兑换 1已兑换
 	private Integer usedStatus;
+	//领取奖品所消耗的积分
 	private Integer point;
+	//操作员工信息实体类
 	private PersonInfo user;
 	private Award award;
+	//店铺信息实体类
 	private Shop shop;
 
 	public Long getUserAwardId() {
@@ -122,4 +128,22 @@ public class UserAwardMap {
 		this.shop = shop;
 	}
 
+	@Override
+	public String toString() {
+		return "UserAwardMap{" +
+				"userAwardId=" + userAwardId +
+				", userId=" + userId +
+				", awardId=" + awardId +
+				", shopId=" + shopId +
+				", userName='" + userName + '\'' +
+				", awardName='" + awardName + '\'' +
+				", expireTime=" + expireTime +
+				", createTime=" + createTime +
+				", usedStatus=" + usedStatus +
+				", point=" + point +
+				", user=" + user +
+				", award=" + award +
+				", shop=" + shop +
+				'}';
+	}
 }

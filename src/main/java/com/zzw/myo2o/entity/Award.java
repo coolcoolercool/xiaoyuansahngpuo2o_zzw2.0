@@ -1,18 +1,24 @@
 package com.zzw.myo2o.entity;
 
 import java.util.Date;
-
+/*
+* 奖品的实体类
+* */
 public class Award {
+	//奖品主键ID
 	private Long awardId;
 	private String awardName;
 	private String awardDesc;
+	//奖品图片地址
 	private String awardImg;
+	//需要用多少积分去兑换
 	private Integer point;
 	private Integer priority;
 	private Date createTime;
 	private Date expireTime;
 	private Date lastEditTime;
 	private Integer enableStatus;
+	//属于哪个店铺
 	private Long shopId;
 
 	public Long getAwardId() {
@@ -103,4 +109,20 @@ public class Award {
 		this.shopId = shopId;
 	}
 
+	@Override
+	public String toString() {
+		return "Award{" +
+				"awardId=" + awardId +
+				", awardName='" + awardName + '\'' +
+				", awardDesc='" + awardDesc + '\'' +
+				", awardImg='" + awardImg + '\'' +
+				", point=" + point +
+				", priority=" + priority +
+				", createTime=" + createTime +
+				", expireTime=" + expireTime +
+				", lastEditTime=" + lastEditTime +
+				", enableStatus=" + enableStatus +
+				", shopId=" + shopId +
+				'}';
+	}
 }

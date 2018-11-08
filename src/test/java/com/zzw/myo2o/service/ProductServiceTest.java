@@ -104,11 +104,11 @@ public class ProductServiceTest extends BaseTest {
     public void modifyProduct() throws Exception{
         // 注意表中的外键关系，确保这些数据在对应的表中的存在
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setProductCategoryId(11L);
+        productCategory.setProductCategoryId(15L);
 
         // 注意表中的外键关系，确保这些数据在对应的表中的存在
         Shop shop = new Shop();
-        shop.setShopId(41L);
+        shop.setShopId(20L);
 
         // 构造Product
         Product product = new Product();
@@ -118,11 +118,12 @@ public class ProductServiceTest extends BaseTest {
         product.setNormalPrice("100");
         product.setPromotionPrice("80");
         product.setPriority(66);
+        product.setPoint(2);
         product.setLastEditTime(new Date());
         product.setProductCategory(productCategory);
         product.setShop(shop);
 
-        product.setProductId(21L);
+        product.setProductId(24L);
         // 构造 商品图片
         File productFile = new File("F:\\javaCode\\OfferProduct\\xioayuanshangpu\\Image\\others\\naicha.jpg");
         InputStream ins = new FileInputStream(productFile);

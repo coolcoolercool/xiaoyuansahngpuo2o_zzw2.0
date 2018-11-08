@@ -2,7 +2,11 @@ package com.zzw.myo2o.entity;
 
 import java.util.Date;
 
+/**
+ * 顾客消费的商铺映射
+ */
 public class UserProductMap {
+	//主键ID
 	private Long userProductId;
 	private Long userId;
 	private Long productId;
@@ -10,6 +14,7 @@ public class UserProductMap {
 	private String userName;
 	private String productName;
 	private Date createTime;
+	//购买商品所获得的积分
 	private Integer point;
 	private PersonInfo user;
 	private Product product;

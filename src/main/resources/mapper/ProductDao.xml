@@ -16,6 +16,7 @@
         <result column="create_time" property="createTime" />
         <result column="last_edit_time" property="lastEditTime" />
         <result column="enable_status" property="enableStatus" />
+        <result column="point" property="point" />
 
         <!-- 一对一使用association  
             product中的属性为productCategory， 通过数据库中的product_category_id关联起来的
@@ -105,6 +106,7 @@
         p.enable_status,
         p.product_category_id,
         p.shop_id,
+        p.point,
         pm.product_img_id,
         pm.img_addr,
         pm.img_desc,
@@ -138,6 +140,7 @@
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="lastEditTime != null">last_edit_time = #{lastEditTime},</if>
             <if test="enableStatus != null ">enable_status = #{enableStatus},</if>
+            <if test="point != null ">point = #{point},</if>
             <!-- 注意如果是引用的复杂对象的写法 -->
             <if test="productCategory != null and productCategory.productCategoryId != null ">product_category_id = #{productCategory.productCategoryId},</if>
         </set>

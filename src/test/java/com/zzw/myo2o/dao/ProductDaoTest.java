@@ -103,10 +103,11 @@ public class ProductDaoTest extends BaseTest {
         Product product = new Product();
         product.setProductName("modifyProduct");
         product.setProductDesc("modifyProduct desc");
-        product.setImgAddr("/mmm/ddd");
-        product.setNormalPrice("350");
-        product.setPromotionPrice("300");
-        product.setPriority(66);
+        product.setImgAddr("/mmm/dd");
+        product.setNormalPrice("35");
+        product.setPromotionPrice("30");
+        product.setPriority(60);
+        product.setPoint(3);
         product.setLastEditTime(new Date());
         product.setEnableStatus(1);
 

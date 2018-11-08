@@ -26,7 +26,7 @@ public class Product implements Serializable {
     private Date lastEditTime;
 
     private Integer enableStatus; // -1不可用 0下架 1在前端页面展示
-    private Integer point;
+    private Integer point; //购买该商品可以获得的积分
 
     private List<ProductImg> productImgList; //商品详情列表
     private ProductCategory productCategory; //商品类型

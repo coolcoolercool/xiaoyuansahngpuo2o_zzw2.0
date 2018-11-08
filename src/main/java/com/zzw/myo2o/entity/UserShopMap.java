@@ -2,13 +2,18 @@ package com.zzw.myo2o.entity;
 
 import java.util.Date;
 
+/**
+ * 顾客店铺积分映射
+ */
 public class UserShopMap {
+	//主键Id
 	private Long userShopId;
 	private Long userId;
 	private Long shopId;
 	private String userName;
 	private String shopName;
 	private Date createTime;
+	//顾客在该店铺的积分
 	private Integer point;
 	private PersonInfo user;
 	private Product product;

@@ -7,19 +7,26 @@ import java.util.Date;
  * date: 2018/10/24 16:00
  */
 
-
+/**
+ * 店铺授权
+ */
 public class ShopAuthMap {
-
+    //主键Id
     private Long shopAuthId;
     private Long employeeId;
     private Long shopId;
     private String name;
+    //职务名
     private String title;
-    private Integer titleFlag;
+    //授权有效状态 0无效 1有效
     private Integer enableStatus;
+    //职称符号(可用于授权控制)
+    private Integer titleFlag;
     private Date createTime;
     private Date lastEditTime;
+    //员工信息实体类
     private PersonInfo employee;
+    //店铺实体类
     private Shop shop;
 
     public Long getShopAuthId() {
@@ -108,5 +115,22 @@ public class ShopAuthMap {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    @Override
+    public String toString() {
+        return "ShopAuthMap{" +
+                "shopAuthId=" + shopAuthId +
+                ", employeeId=" + employeeId +
+                ", shopId=" + shopId +
+                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
+                ", titleFlag=" + titleFlag +
+                ", enableStatus=" + enableStatus +
+                ", createTime=" + createTime +
+                ", lastEditTime=" + lastEditTime +
+                ", employee=" + employee +
+                ", shop=" + shop +
+                '}';
     }
 }

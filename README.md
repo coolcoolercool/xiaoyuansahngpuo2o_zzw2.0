@@ -51,7 +51,7 @@
 * JDK: 1.8
 * MySQl: 5.7.21
 * IDE: idea
-* Maven: 3.9.0
+* Maven: 3.3.9
 * Runtime Server: apache-tomcat-8.5.34
 * Deploy Env: 阿里云服务器 Centos7.2
 

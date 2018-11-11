@@ -40,7 +40,7 @@
 
 ### 所用技术类型
 * 前端: 前端UI库 SUI Moblie/ jQuery 
-* 后端: 主题框架SSM/图片开源工具 Thumbnailator
+* 后端: 主体框架SSM/图片开源工具 Thumbnailator
 * 验证码组件Kaptcha
 * 平台: javaWeb
 * 数据库: MySQL
